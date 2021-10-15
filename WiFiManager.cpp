@@ -1681,10 +1681,14 @@ void WiFiManager::handleWifiSave() {
   //SAVE/connect here
   _ssid = server->arg(F("s")).c_str();
   _pass = server->arg(F("p")).c_str();
-  _email = server->arg(F("a"));
+  _email = server->arg(F("e"));
   _passEmail = server->arg(F("pf"));
+  Serial.println(_email);
+  Serial.println(_passEmail);
+  preferences.begin("data", false);
   preferences.putString("FK", _email);
   preferences.putString("FPK", _passEmail);
+  preferences.end();
   if(_paramsInWifi) doParamSave();
 
   if (server->arg(FPSTR(S_ip)) != "") {
