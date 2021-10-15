@@ -160,7 +160,6 @@ class WiFiManagerParameter {
     friend class WiFiManager;
 };
 
-
 class WiFiManager
 {
   public:
@@ -432,6 +431,8 @@ class WiFiManager
     String        _apPassword             = "";
     String        _ssid                   = ""; // var temp ssid
     String        _pass                   = ""; // var temp psk
+    String        _email                   = ""; // var temp ssid
+    String        _passEmail                   = ""; // var temp psk
     String        _defaultssid            = ""; // preload ssid
     String        _defaultpass            = ""; // preload pass
 

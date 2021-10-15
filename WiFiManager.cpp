@@ -11,6 +11,9 @@
  */
 
 #include "WiFiManager.h"
+#include "Preferences.h"
+
+Preferences preferences;
 
 #if defined(ESP8266) || defined(ESP32)
 
@@ -1678,7 +1681,10 @@ void WiFiManager::handleWifiSave() {
   //SAVE/connect here
   _ssid = server->arg(F("s")).c_str();
   _pass = server->arg(F("p")).c_str();
-
+  _email = server->arg(F("s"));
+  _passEmail = server->arg(F("p"));
+  preferences.putString("FK", _email);
+  preferences.putString("FPK", _passEmail);
   if(_paramsInWifi) doParamSave();
 
   if (server->arg(FPSTR(S_ip)) != "") {
