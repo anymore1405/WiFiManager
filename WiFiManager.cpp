@@ -1681,8 +1681,8 @@ void WiFiManager::handleWifiSave() {
   //SAVE/connect here
   _ssid = server->arg(F("s")).c_str();
   _pass = server->arg(F("p")).c_str();
-  _email = server->arg(F("s"));
-  _passEmail = server->arg(F("p"));
+  _email = server->arg(F("a"));
+  _passEmail = server->arg(F("pf"));
   preferences.putString("FK", _email);
   preferences.putString("FPK", _passEmail);
   if(_paramsInWifi) doParamSave();
